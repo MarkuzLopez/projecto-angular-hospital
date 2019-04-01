@@ -5,43 +5,43 @@
   <div class="login-register" style="background-image:url(../assets/images/background/login-register.jpg);">
     <div class="login-box card">
       <div class="card-body">
-        <form  (click)="ingresar()" class="form-horizontal form-material" id="loginform" action="index.html">
-          <h3 class="box-title m-b-20">Sign In</h3>
+        <form ngNativeValidate  #f="ngForm"  (ngSubmit)="ingresar(f)" class="form-horizontal form-material"  >
+          <h3 class="box-title m-b-20">Registrtate </h3>
           <div class="form-group ">
             <div class="col-xs-12">
-              <input class="form-control" type="text" required="" placeholder="Username"> </div>
+              <input [ngModel]="email" name="email" class="form-control" type="email" required placeholder="Email Usuario"> </div>
           </div>
           <div class="form-group">
             <div class="col-xs-12">
-              <input class="form-control" type="password" required="" placeholder="Password"> </div>
+              <input ngModel name="password" class="form-control" type="password" required placeholder="Contraseña"> </div>
           </div>
           <div class="form-group row">
             <div class="col-md-12">
               <div class="checkbox checkbox-info pull-left p-t-0">
-                <input id="checkbox-signup" type="checkbox" class="filled-in chk-col-light-blue">
-                <label for="checkbox-signup"> Remember me </label>
+                <input [(ngModel)]="recuerdame" name="recuerdame" id="checkbox-signup" type="checkbox" class="filled-in chk-col-light-blue">
+                <label for="checkbox-signup"> Recordarme </label>
               </div> <a href="javascript:void(0)" id="to-recover" class="text-dark pull-right"><i
-                  class="fa fa-lock m-r-5"></i> Forgot pwd?</a>
+                  class="fa fa-lock m-r-5"></i> ¿Olvidaste la contraseña?</a>
             </div>
           </div>
           <div class="form-group text-center">
             <div class="col-xs-12 p-b-20">
-              <button class="btn btn-block btn-lg btn-info btn-rounded" type="submit">Log In</button>
+              <button class="btn btn-block btn-lg btn-info btn-rounded" type="submit">Ingresar</button>
             </div>
           </div>
           <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 m-t-10 text-center">
               <div class="social">
-                <a href="javascript:void(0)" class="btn  btn-facebook" data-toggle="tooltip"
-                  title="Login with Facebook"> <i aria-hidden="true" class="fa fa-facebook"></i> </a>
-                <a href="javascript:void(0)" class="btn btn-googleplus" data-toggle="tooltip" title="Login with Google">
-                  <i aria-hidden="true" class="fa fa-google-plus"></i> </a>
+                <!-- <a href="javascript:void(0)" class="btn  btn-facebook" data-toggle="tooltip"
+                  title="Iniciar session con Facebook"> <i aria-hidden="true" class="fa fa-facebook"></i> </a> -->
+                <button type="button"  id="btnGoogle" class="btn btn-googleplus" data-toggle="tooltip" title="Iniciar session con Google">
+                  <i aria-hidden="true" class="fa fa-google-plus"></i> </button>
               </div>
             </div>
           </div>
           <div class="form-group m-b-0">
             <div class="col-sm-12 text-center">
-              Don't have an account? <a href="pages-register.html" class="text-info m-l-5"><b>Sign Up</b></a>
+             ¿No tienes cuenta? <a routerLink="/register" class="text-info m-l-5"><b>Sign Up</b></a>
             </div>
           </div>
         </form>

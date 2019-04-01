@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms'; /// * para el bind [(ngModel)]
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'; /// * para el bind [(ngModel)], y formulario reactivos
 
 // *  Rutas ///
 import { APP_ROUTES } from './app-routing.module';
@@ -30,6 +30,7 @@ import { ServicesModule } from './services/services.module';
     APP_ROUTES,
     PagesModule,
     FormsModule,
+    ReactiveFormsModule,
     ServicesModule
   ],
   providers: [],
