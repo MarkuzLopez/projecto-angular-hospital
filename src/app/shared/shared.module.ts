@@ -7,11 +7,13 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common'; /// * directivas, ngFor, ngIf, NgStyle etc..
+import { PipesModule } from '../pipes/pipes.module';
 
 @NgModule({
     imports: [
       RouterModule,
-      CommonModule
+      CommonModule,
+      PipesModule
     ],
     declarations: [
      BreadcrumbsComponent,
