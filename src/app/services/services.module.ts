@@ -7,10 +7,11 @@ import {
    SidebarService,
    SharedService,
    UsuarioService,
-   SubirArchivoService
+   SubirArchivoService,
+   ModalUploadService
   } from './services.index';
 import { LoginGuardGuard } from './guards/login-guard.guard';
-import {  } from './subirArchivo/subir-archivo.service';
+
 
 @NgModule({
   declarations: [],
@@ -20,7 +21,8 @@ import {  } from './subirArchivo/subir-archivo.service';
     SharedService,
     UsuarioService,
     LoginGuardGuard,
-    SubirArchivoService
+    SubirArchivoService,
+    ModalUploadService
   ],
   imports: [
     CommonModule,

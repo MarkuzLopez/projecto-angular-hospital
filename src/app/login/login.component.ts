@@ -4,6 +4,8 @@ import { NgForm } from '@angular/forms';
 import { Usuario } from '../models/usuario.model';
 import { UsuarioService } from '../services/services.index';
 
+import Swal from 'sweetalert2';
+
 declare function init_plugins();
 
 /// para obtener la variable e usuar google signin
@@ -37,7 +39,6 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  
 
   googleInit() {
     gapi.load('auth2', () => {
@@ -87,6 +88,14 @@ export class LoginComponent implements OnInit {
     });
 
     //this._router.navigate(['/dashboard']);
+  }
+
+  hola() { 
+    Swal.fire(
+      'Good job!',
+      'You clicked the button!',
+      'success'
+    )
   }
 
 }

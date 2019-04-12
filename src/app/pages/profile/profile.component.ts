@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from 'src/app/services/services.index';
 import { Usuario } from 'src/app/models/usuario.model';
-import swal from 'sweetalert';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-profile',
@@ -13,7 +13,7 @@ export class ProfileComponent implements OnInit {
   usuario: Usuario;
   imagenSubir: File;
 
-  imagenTemp: string;
+  imagenTemp: any;
 
   constructor(private usuaarioService: UsuarioService) {
     this.usuario = this.usuaarioService.usuario;
@@ -24,14 +24,14 @@ export class ProfileComponent implements OnInit {
 
   guardar(usuario: Usuario) {
     this.usuario.nombre = usuario.nombre;
-    // si el usuario no es de google actualizalo  
+    // si el usuario no es de google actualizalo
     if ( !this.usuario.google) {
       this.usuario.email =  usuario.email;
     }
 
-    console.log(usuario);
     this.usuaarioService.updateUsuario(this.usuario).subscribe( resp => {
       console.log('respuesta', resp);
+      Swal.fire('Usuario actualizado', '¡Correctamente!', 'success' );
     });
   }
 
@@ -42,7 +42,8 @@ export class ProfileComponent implements OnInit {
     }
 
     if (archivo.type.indexOf('image') < 0) {
-      swal('Solo imagenes', 'El archivo seleccionado no es una imagen', 'error');
+      // swal('Solo imagenes', 'El archivo seleccionado no es una imagen', 'error');
+      Swal.fire('Solo Imagenes', 'El archivo no coincida', 'error');
       this.imagenSubir = null;
       return;
     }
@@ -63,7 +64,6 @@ export class ProfileComponent implements OnInit {
   }
 
   cambiarImagen() {
-    console.log('hola');
     this.usuaarioService.cambiarImagen(this.imagenSubir, this.usuario._id);
   }
 

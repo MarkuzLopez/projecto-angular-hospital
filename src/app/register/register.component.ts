@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
-import swal from 'sweetalert';
+import swal from 'sweetalert2';
 
 import { UsuarioService } from '../services/services.index';
 import { Usuario } from '../models/usuario.model';
@@ -18,7 +18,7 @@ declare function init_plugins(); // pra quitar el loading de registar cada que s
 export class RegisterComponent implements OnInit {
 
   forma: FormGroup;
- 
+
 
   constructor(public usuarioService: UsuarioService, public router: Router) { }
 
@@ -61,7 +61,7 @@ export class RegisterComponent implements OnInit {
 
     if (!this.forma.value.condiciones ) {
         console.log('Debe de aceptar las condiciones');
-        swal('Importante!', 'Debes de aceptar las condiciones', 'warning');
+        swal.fire('Importante!', 'Debes de aceptar las condiciones', 'warning');
         return;
     }
 
