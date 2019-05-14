@@ -8,7 +8,9 @@ import {
    SharedService,
    UsuarioService,
    SubirArchivoService,
-   ModalUploadService
+   ModalUploadService,
+   HospitalesService,
+   MedicoService
   } from './services.index';
 import { LoginGuardGuard } from './guards/login-guard.guard';
 
@@ -20,9 +22,11 @@ import { LoginGuardGuard } from './guards/login-guard.guard';
     SidebarService,
     SharedService,
     UsuarioService,
+    HospitalesService,
     LoginGuardGuard,
     SubirArchivoService,
-    ModalUploadService
+    ModalUploadService,
+    MedicoService
   ],
   imports: [
     CommonModule,

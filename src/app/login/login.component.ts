@@ -8,7 +8,7 @@ import Swal from 'sweetalert2';
 
 declare function init_plugins();
 
-/// para obtener la variable e usuar google signin
+/// para obtener la variable e usuar google signin "ze1hLS0Mzd9YTD3qUrYL" "oaa9j75pwXEqNGNtqynd"
 declare const gapi: any;
 
 @Component({

@@ -1,0 +1,107 @@
+<div class="row animated fadeIn ">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        <input #input (keyup)="buscarHospital(input.value)" type="text" class=form-control placeholder="Buscar usuarios..." >
+         
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row animated fadeIn" *ngIf="cargando">
+  <div class="col-sm-12">
+    <div class="alert alert-warning text-center">
+      <strong>Cargando...</strong>
+      <br>
+      <i class="fa fa-refresh fa-spin fa-2x"></i><br>
+      <span>Espere por favor</span>
+    </div>
+  </div>
+</div>
+
+<div class="row animated fadeIn" *ngIf="!cargando">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+
+        <h3 class="card-title">Usuarios Registrdos ( <small>{{total}}</small> ) </h3>
+
+        <div align="right">
+          <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Crear Hospital</button>
+        </div>
+      
+        <table class="table table-responsive-sm table-responsive-md table-responsive-lg">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Imagen</th>                
+                <th scope="col">Nombre</th>                
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let hospital of Hospitales;" >
+                <td class="w70">
+                  <img (click)="mostrarModalImg(hospital._id)" [src]="hospital.img | imagen:'hospital'" alt="" class="img-50 img-circle pointer" >
+                </td>
+                <td>
+                  <input type="text" name="nombre" [(ngModel)]="hospital.nombre" class="form-control" >
+                </td>
+                <td>
+                  <button (click)="updateHospital(hospital)" class="btn btn-primary mr-2"><i class="fa fa-save"></i></button>
+                  <button (click)="eliminarHospital(hospital._id)" class="btn btn-danger"><i  class="fa fa-trash" ></i></button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          
+      </div>
+    </div>
+  </div>
+ </div>
+
+
+ <!-- MODAL PARA CREAR HOSPITAL -->
+<!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Launch demo modal
+</button> -->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Crear Hospital</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="card">
+          <div class="card-body">
+              <h4 class="card-title">Perfil del usuario</h4>
+              <h6 class="card-subtitle">Nombre de usuario</h6>
+              <form ngNativeValidator #f="ngForm" class="form-horizontal p-t-20">
+                  <div class="form-group row">
+                      <label for="exampleInputuname3" class="col-sm-3 control-label">Username</label>
+                      <div class="col-sm-9">
+                          <div class="input-group">
+                              <div class="input-group-addon"><i class="ti-user"></i></div>
+                              <input type="text" name="nombre" [(ngModel)]="nombre" class="form-control" placeholder="nombre Usuario" required>
+                          </div>
+                      </div>
+                  </div>
+              </form>
+          </div>
+      </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" (click)="guardarHospital(nombre)" class="btn btn-primary">Guardar Hospital</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FIN DE MODAL  -->

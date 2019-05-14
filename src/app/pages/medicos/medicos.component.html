@@ -1,0 +1,56 @@
+<div class="row animated fadeIn ">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        <input #input (keyup)="buscarMedico(input.value)"  type="text" class=form-control placeholder="Buscar usuarios..." >
+         
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="row animated fadeIn" *ngIf="!cargando">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+
+        <h3 class="card-title">Medicos Registrdos ( <small>{{total}}</small> ) </h3>
+
+        <div align="right">
+          <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" [routerLink]="['/medico','nuevo']" >Crear Medico</button>
+        </div>
+      
+        <table class="table table-responsive-sm table-responsive-md table-responsive-lg">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Imagen</th>                
+                <th scope="col">Nombre</th>
+                <th scope="col">Hospital</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let medico of medicos;">
+                <td class="w70">
+                  <img  [src]="medico.img | imagen:'hospital'" alt=""
+                    class="img-50 img-circle pointer">
+                </td>
+                <td>
+                  <input type="text" name="nombre" [(ngModel)]="medico.nombre" class="form-control">
+                </td>
+                <td>
+                  <input type="text" name="nombre" [(ngModel)]="medico.hospital.nombre" class="form-control" >
+                </td>
+                <td>
+                  <button [routerLink]="['/medico', medico._id]" class="btn btn-primary mr-2"><i class="fa fa-save"></i></button>
+                  <button (click)="borrarMedico(medico)" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          
+      </div>
+    </div>
+  </div>
+ </div>

@@ -25,6 +25,9 @@ import { ModalImgComponent } from '../componentes/modal-img/modal-img.component'
 // pipes modulo
 import { PipesModule } from '../pipes/pipes.module';
 import { CommonModule } from '@angular/common';
+import { HospitalesComponent } from './hospitales/hospitales.component';
+import { MedicosComponent } from './medicos/medicos.component';
+import { MedicoComponent } from './medicos/medico/medico.component';
 
 
 
@@ -41,7 +44,10 @@ import { CommonModule } from '@angular/common';
         RxjsComponent,
         ProfileComponent,
         UsuariosComponent,
-        ModalImgComponent
+        ModalImgComponent,
+        HospitalesComponent,
+        MedicosComponent,
+        MedicoComponent
     ],
     exports: [
         DashboardComponent,
