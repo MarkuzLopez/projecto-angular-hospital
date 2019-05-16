@@ -10,7 +10,8 @@ import {
    SubirArchivoService,
    ModalUploadService,
    HospitalesService,
-   MedicoService
+   MedicoService,
+   AdminGuard
   } from './services.index';
 import { LoginGuardGuard } from './guards/login-guard.guard';
 
@@ -24,6 +25,7 @@ import { LoginGuardGuard } from './guards/login-guard.guard';
     UsuarioService,
     HospitalesService,
     LoginGuardGuard,
+    AdminGuard,
     SubirArchivoService,
     ModalUploadService,
     MedicoService

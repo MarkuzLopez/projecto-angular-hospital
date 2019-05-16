@@ -71,9 +71,11 @@ export class RegisterComponent implements OnInit {
       this.forma.value.password
     );
 
-    this.usuarioService.createUsuario(usuarioModel).subscribe( resp => {
+    this.usuarioService.createUsuario(usuarioModel).subscribe( (resp: any) => {
       console.log('respuesta', resp);
-      this.router.navigate(['/login']);
+      if (resp.ok && resp.ok === true) {
+        this.router.navigate(['/login']);
+      }
     });
 
     console.log(this.forma.value);

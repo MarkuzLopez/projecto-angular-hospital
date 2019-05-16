@@ -28,6 +28,7 @@ import { CommonModule } from '@angular/common';
 import { HospitalesComponent } from './hospitales/hospitales.component';
 import { MedicosComponent } from './medicos/medicos.component';
 import { MedicoComponent } from './medicos/medico/medico.component';
+import { BusquedaComponent } from './busqueda/busqueda.component';
 
 
 
@@ -47,7 +48,8 @@ import { MedicoComponent } from './medicos/medico/medico.component';
         ModalImgComponent,
         HospitalesComponent,
         MedicosComponent,
-        MedicoComponent
+        MedicoComponent,
+        BusquedaComponent
     ],
     exports: [
         DashboardComponent,
