@@ -18,7 +18,6 @@ export class ModalImgComponent implements OnInit {
   constructor(public modalService: ModalUploadService, public subirArchivoService: SubirArchivoService ) { }
 
   ngOnInit() {
-    console.log('modal listo');
   }
 
   cerrarModal() {

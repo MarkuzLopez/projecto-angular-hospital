@@ -32,7 +32,6 @@ export class UsuarioService {
 // tslint:disable-next-line: variable-name
     public _subirArchivoService: SubirArchivoService
      ) {
-    console.log('servicio de usuario listo');
     this.cargarStorage();
   }
 
@@ -148,6 +147,25 @@ export class UsuarioService {
         return resp;
       })
     );
+  }
+
+
+  renovarToken() {
+    // localhost:3000/login/renuevatoken?token=
+    const url = `${URL_SERVICIOS}/login/renuevatoken?=${this.token}`;
+    return this.http.get(url, httpOptions).pipe(
+                map((resp: any) => {
+                  this.token = resp.token;
+                  localStorage.setItem('token', this.token);
+                  return true;
+                })).pipe(
+                  catchError( error => 
+                   of([
+                      this.router.navigate(['/login']),
+                      Swal.fire('Expiro su session', 'No fuen posible renovar su token', 'error')
+                   ])
+                  )
+                );
   }
 
   createUsuario(usuario: Usuario) {

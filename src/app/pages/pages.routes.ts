@@ -15,16 +15,23 @@ import { HospitalesComponent } from './hospitales/hospitales.component';
 import { MedicosComponent } from './medicos/medicos.component';
 import { MedicoComponent } from './medicos/medico/medico.component';
 import { BusquedaComponent } from './busqueda/busqueda.component';
+import { VerificaTokenGuard } from '../services/guards/verifica-token.guard';
 
 
 
 const pagesRoutes: Routes = [
-    {
-        path: '',
-        component: PagesComponent,
-        canActivate: [LoginGuardGuard],
-        children: [
-            {path: 'dashboard', component: DashboardComponent, data: {titulo: 'Dashboard'} },
+    // {
+    //     path: '',
+    //     component: PagesComponent,
+    //     canActivate: [LoginGuardGuard],
+    //     children: [
+
+            {
+              path: 'dashboard',
+              component: DashboardComponent,
+              canActivate: [VerificaTokenGuard],
+              data: {titulo: 'Dashboard'}
+            },
             {path: 'progress', component: ProgressComponent, data: {titulo: 'Progress'} },
             {path: 'graficas1', component: Graficas1Component, data: {titulo: 'Graficas'} },
             {path: 'promesas', component: PromesasComponent, data: {titulo: 'Ajustes del Tema'}},
@@ -45,8 +52,8 @@ const pagesRoutes: Routes = [
             { path: 'medico/:id', component: MedicoComponent, data: {titulo: 'Medico :D '}},
             {path: '', redirectTo: '/dashboard', pathMatch: 'full' }
             /// * TODOs cuando no existe ninguna ruta, mandarlos a dasboard */
-        ]
-    }
+    //     ]
+    // }
 ];
 
 export const PAGES_ROUTES = RouterModule.forChild( pagesRoutes );

@@ -17,6 +17,8 @@ import { RegisterComponent } from './register/register.component';
 
 /// TODO modulo de todos los servicios
 import { ServicesModule } from './services/services.module';
+import { PagesComponent } from './pages/pages.component';
+import { SharedModule } from './shared/shared.module';
 
 
 
@@ -24,15 +26,19 @@ import { ServicesModule } from './services/services.module';
   declarations: [
     AppComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    PagesComponent
   ],
   imports: [
     BrowserModule,
     APP_ROUTES,
-    PagesModule,
+    // PagesModule, 
+    // tslint:disable-next-line: max-line-length
+    // cuando se aplica el lazyload, la importracion del modulo mo se aplica ya que se realiza en uso en el app-routing.module.ts (loadChildren)
     FormsModule,
     ReactiveFormsModule,
-    ServicesModule
+    ServicesModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

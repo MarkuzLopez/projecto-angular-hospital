@@ -8,7 +8,7 @@ import { SharedModule } from '../shared/shared.module';
 // ! Rutas
 import { PAGES_ROUTES } from './pages.routes';
 
-import { PagesComponent } from './pages.component';
+// import { PagesComponent } from './pages.component';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProgressComponent } from './progress/progress.component';
@@ -20,7 +20,7 @@ import { PromesasComponent } from './promesas/promesas.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
 import { ProfileComponent } from './profile/profile.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
-import { ModalImgComponent } from '../componentes/modal-img/modal-img.component';
+// import { ModalImgComponent } from '../componentes/modal-img/modal-img.component';
 
 // pipes modulo
 import { PipesModule } from '../pipes/pipes.module';
@@ -34,7 +34,7 @@ import { BusquedaComponent } from './busqueda/busqueda.component';
 
 @NgModule({
     declarations: [
-        PagesComponent,
+        // PagesComponent,
         DashboardComponent,
         ProgressComponent,
         Graficas1Component,
@@ -45,7 +45,7 @@ import { BusquedaComponent } from './busqueda/busqueda.component';
         RxjsComponent,
         ProfileComponent,
         UsuariosComponent,
-        ModalImgComponent,
+        // ModalImgComponent,
         HospitalesComponent,
         MedicosComponent,
         MedicoComponent,

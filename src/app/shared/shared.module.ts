@@ -8,6 +8,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common'; /// * directivas, ngFor, ngIf, NgStyle etc..
 import { PipesModule } from '../pipes/pipes.module';
+import { ModalImgComponent } from '../componentes/modal-img/modal-img.component';
 
 @NgModule({
     imports: [
@@ -19,13 +20,15 @@ import { PipesModule } from '../pipes/pipes.module';
      BreadcrumbsComponent,
      HeaderComponent,
      NoPageFoundComponent,
-     SidebarComponent
+     SidebarComponent,
+     ModalImgComponent
     ],
     exports: [
       BreadcrumbsComponent,
       HeaderComponent,
       NoPageFoundComponent,
-      SidebarComponent
+      SidebarComponent,
+      ModalImgComponent
     ]
 })
 
